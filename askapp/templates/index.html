@@ -1,0 +1,37 @@
+{% include "core/base.html" %}
+
+{% block title %}{% endblock title %}
+
+
+{% block body %}
+
+<div class="text-center py-3">
+    <img src="/static/botimg.png" alt="Bot Logo" height="55">
+    <h2>Ask Bot is here to Answer Your Query ! </h2>
+</div>
+
+
+<div class="container my-3">
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group">
+        <input type="text" name="query" class="form-control rounded" placeholder="Type Your Query" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary">search</button>
+        </div>
+    </form>
+</div>
+<br>
+
+{% comment %} {% if queryReply|length > 0 %}bg-secondary bg-gradient text-white{% endif %} {% endcomment %}
+
+<div class="container {% if queryReply|length > 0 %}bg-secondary bg-gradient text-white{% endif %} ">
+    <h5>
+        <p>{{queryReply|linebreaksbr}}</p>
+        <br>
+    </h5>
+</div>
+
+
+    
+
+{% endblock body %}
