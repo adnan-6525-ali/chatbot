@@ -16,7 +16,7 @@ def index(request):
 
         # openai code for get answer
         try:
-            openai.api_key = "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"
+            openai.api_key = ""
             messages = [ {"role": "system", "content": "You are a intelligent assistant."} ]
             message = userQuery
             messages.append({"role": "user", "content": message},)
